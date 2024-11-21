@@ -44,8 +44,10 @@ class _HomeState extends State<Home> {
               height: 30.0,
             ),
             Text("Arunika Food", style: AppWidget.HeadLineTextFeildStyle()),
-            Text("Discover and Get Great Food",
-                style: AppWidget.LightTextFeildStyle()),
+            Text(
+              "Discover and Get Great Food",
+              style: AppWidget.LightTextFeildStyle(),
+            ),
             const SizedBox(
               height: 20.0,
             ),
@@ -55,9 +57,9 @@ class _HomeState extends State<Home> {
                 GestureDetector(
                   onTap: () {
                     icecream = true;
-                    pizza = true;
-                    salad = true;
-                    burger = true;
+                    pizza = false;
+                    salad = false;
+                    burger = false;
                     setState(() {});
                   },
                   child: Material(
@@ -65,8 +67,9 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(8),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: icecream ? Colors.black : Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
+                        color: icecream ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       padding: const EdgeInsets.all(10),
                       child: Image.asset(
                         "images/ice-cream.png",
@@ -78,47 +81,89 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Material(
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/pizza.png",
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = true;
+                    salad = false;
+                    burger = false;
+                    setState(() {});
+                  },
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: pizza ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Image.asset(
+                        "images/pizza.png",
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                        color: pizza ? Colors.white : Colors.black,
+                      ),
                     ),
                   ),
                 ),
-                Material(
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/salad.png",
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = false;
+                    salad = true;
+                    burger = false;
+                    setState(() {});
+                  },
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: salad ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Image.asset(
+                        "images/salad.png",
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                        color: salad ? Colors.white : Colors.black,
+                      ),
                     ),
                   ),
                 ),
-                Material(
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/burger.png",
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = false;
+                    salad = false;
+                    burger = true;
+                    setState(() {});
+                  },
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: burger ? Colors.black : Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Image.asset(
+                        "images/burger.png",
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                        color: burger ? Colors.white : Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
