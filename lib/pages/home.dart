@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/pages/details.dart';
 
 import '../widget/widget_support.dart';
 
@@ -15,175 +16,189 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Hello, Wira",
-                  style: AppWidget.boldTextFeildStyle(),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 20.0),
-                  padding: const EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Icon(
-                    Icons.shopping_cart,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            Text("Arunika Food", style: AppWidget.HeadLineTextFeildStyle()),
-            Text(
-              "Discover and Get Great Food",
-              style: AppWidget.LightTextFeildStyle(),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Container(
-                margin: const EdgeInsets.only(right: 20.0), child: showItem()),
-            const SizedBox(
-              height: 30.0,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
+      body: SingleChildScrollView( // Tambahkan SingleChildScrollView di sini
+        child: Container(
+          margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Text(
+                    "Hello, Wira",
+                    style: AppWidget.boldTextFeildStyle(),
+                  ),
                   Container(
-                    margin: const EdgeInsets.all(4),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: const EdgeInsets.all(14),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad2.png",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text("Arunika Khas Kuningan",
-                                  style: AppWidget.semiBooldTextFeildStyle()),
-                              const SizedBox(
-                                height: 5.0,
-                              ),
-                              Text("Arunika Khas Kuningan",
-                                  style: AppWidget.LightTextFeildStyle()),
-                              const SizedBox(
-                                height: 5.0,
-                              ),
-                              Text(
-                                "Rp.25000",
-                                style: AppWidget.semiBooldTextFeildStyle(),
-                              )
-                            ]),
-                      ),
+                    margin: const EdgeInsets.only(right: 20.0),
+                    padding: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 15.0,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(4),
-                    child: Material(
-                      elevation: 5.0,
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: const EdgeInsets.all(14),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                "images/salad2.png",
-                                height: 150,
-                                width: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text("Arunika Khas Kuningan",
-                                  style: AppWidget.semiBooldTextFeildStyle()),
-                              const SizedBox(
-                                height: 5.0,
-                              ),
-                              Text("Arunika Khas Kuningan",
-                                  style: AppWidget.LightTextFeildStyle()),
-                              const SizedBox(
-                                height: 5.0,
-                              ),
-                              Text(
-                                "Rp.25000",
-                                style: AppWidget.semiBooldTextFeildStyle(),
-                              )
-                            ]),
-                      ),
+                    child: const Icon(
+                      Icons.shopping_cart,
+                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            Material(
-              elevation: 5.0,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                padding: const EdgeInsets.all(5),
+              const SizedBox(
+                height: 30.0,
+              ),
+              Text("Arunika Food", style: AppWidget.HeadLineTextFeildStyle()),
+              Text(
+                "Discover and Get Great Food",
+                style: AppWidget.LightTextFeildStyle(),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                  margin: const EdgeInsets.only(right: 20.0), child: showItem()),
+              const SizedBox(
+                height: 30.0,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      "images/salad2.png",
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Details()),
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(4),
+                        child: Material(
+                          elevation: 5.0,
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            padding: const EdgeInsets.all(14),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "images/salad2.png",
+                                    height: 150,
+                                    width: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Text("Arunika Khas Kuningan",
+                                      style: AppWidget.semiBooldTextFeildStyle()),
+                                  const SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  Text("Arunika Khas Kuningan",
+                                      style: AppWidget.LightTextFeildStyle()),
+                                  const SizedBox(
+                                    height: 5.0,
+                                  ),
+                                  Text(
+                                    "Rp.25000",
+                                    style: AppWidget.semiBooldTextFeildStyle(),
+                                  )
+                                ]),
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(
-                      width: 20.0,
+                      width: 15.0,
                     ),
-                    Column(
-                      children: [
-                        Container(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              "Ayam Bakar Khas Arunika",
-                              style: AppWidget.semiBooldTextFeildStyle(),
-                            )),
-                        const SizedBox(height: 5.0,),
-                        Container(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              "Shop Iga Bakar",
-                              style: AppWidget.LightTextFeildStyle(),
-                            )),
-                        const SizedBox(height: 5.0,),
-                        Container(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              "Rp.56000",
-                              style: AppWidget.semiBooldTextFeildStyle(),
-                            )),
-                      ],
-                    )
+                    Container(
+                      margin: const EdgeInsets.all(4),
+                      child: Material(
+                        elevation: 5.0,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          padding: const EdgeInsets.all(14),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "images/salad2.png",
+                                  height: 150,
+                                  width: 150,
+                                  fit: BoxFit.cover,
+                                ),
+                                Text("Arunika Khas Kuningan",
+                                    style: AppWidget.semiBooldTextFeildStyle()),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                Text("Arunika Khas Kuningan",
+                                    style: AppWidget.LightTextFeildStyle()),
+                                const SizedBox(
+                                  height: 5.0,
+                                ),
+                                Text(
+                                  "Rp.25000",
+                                  style: AppWidget.semiBooldTextFeildStyle(),
+                                )
+                              ]),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 30.0,
+              ),
+              Material(
+                elevation: 5.0,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "images/salad2.png",
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(
+                        width: 20.0,
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "Ayam Bakar Khas Arunika",
+                                style: AppWidget.semiBooldTextFeildStyle(),
+                              )),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "Shop Iga Bakar",
+                                style: AppWidget.LightTextFeildStyle(),
+                              )),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Text(
+                                "Rp.56000",
+                                style: AppWidget.semiBooldTextFeildStyle(),
+                              )),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
